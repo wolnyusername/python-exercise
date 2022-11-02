@@ -1,3 +1,4 @@
+import os
 # exercise 1 : Given two integer numbers by user return their product only if the product is equal to or lower than 1000, else return their sum.
 def sum_if():
     number1 = int(input("give first number"))
@@ -151,16 +152,290 @@ def downward_pyramid():
 #exercise 15: Write a function called exponent(base, exp) that returns an int value of base raises to the power of exp.
 def exponent():
     base = int(input("write base of exponent"))
-    exponent = int(input("write positive exponent integer"))
+    exp = int(input("write positive exponent integer"))
     value = 1
-    if exponent <= 0:
+    if exp <= 0:
         print("write integer greater then 0")
     else:
-        for i in range(exponent):
+        for i in range(exp):
             value = value*base
         return value
 
 
-#exercise : Display three string “Name”, “Is”, “James” as “Name**Is**James”
+#exercise 16: Display three string “Name”, “Is”, “James” as “Name**Is**James”
 def display_name():
     print('Name', 'Is', 'James',sep="**")
+
+
+#exercise 17: Accept a list of 5 float numbers as an input from the user
+def input_list():
+    input_numbers = input("Enter numbers separated by space")
+    list_of_numbers = input_numbers.split()
+    for i in range(len(list_of_numbers)):
+        list_of_numbers[i] = float(list_of_numbers[i])
+
+
+#exercise 18: Write all content of a given file into a new file but skipping given line number
+def skip_line():
+    given_file = open('test.txt', 'r')
+    new_file = open('new_file.txt', 'a')
+    which_line_to_skip = int(input("write line that you want to skip during rewriting"))
+    iterator = 0
+    for line in given_file:
+        if iterator != which_line_to_skip-1:
+            new_file.write(line)
+        iterator += 1
+    given_file.close()
+    new_file.close()
+
+
+#exercise 19: Accept any string from one input() call separated with space and print them
+def multi_input():
+    given_names = input("write list of names separated with space")
+    listed_names = given_names.split(sep=" ")
+    for i in range(len(listed_names)):
+        print(f"name {i+1} is {listed_names[i]} ")
+
+
+#exercise 20: Print variables with f""
+def f_format():
+    money = 102
+    quantity = 3
+    price = 50
+    print(f"I have {money} dollars so I can buy {quantity} for {price}")
+
+
+#exercise 21: Check if file is empty
+def is_empty():
+    file_path = 'test.txt'
+    if os.stat(file_path).st_size == 0:
+        print("Empty file")
+    else:
+        print("File  not empty")
+
+
+#exercise 22: Read given line number from the following file
+def read_given_live():
+    f = open('test.txt', 'r')
+    chosen_line = int(input("write line that you want to read"))
+    iterator = 0
+    for line in f:
+        if iterator == chosen_line-1:
+            print(line)
+        iterator += 1
+    f.close()
+
+
+#exercise 23: Calculate the sum of all numbers from 1 to a given number
+def sum_of_numbers():
+    number = int(input("write your number"))
+    sum_of_numbers = 0
+    for i in range(1, number+1):
+        sum_of_numbers += i
+    print(sum_of_numbers)
+
+
+#exercise 24: Write a program to print multiplication table of a given number
+def multiplication_of_number():
+    number_to_multiply = int(input("write number to multiply"))
+    for i in range(1,11):
+        print(i*number_to_multiply)
+
+
+#exercise 25: Display numbers from a list using loop. Write a program to display only those numbers from a list that satisfy the following conditions:
+#The number must be divisible by five
+#If the number is greater than 150, then skip it and move to the next number
+#If the number is greater than 500, then stop the loop
+def display_number_from_list():
+    number_list=[12, 75, 150, 180, 145, 525, 50]
+    for number in number_list:
+        if number > 500:
+            break
+        elif number > 150:
+            continue
+        elif number % 5 == 0:
+            print(number)
+
+
+#exercise 26: Write a program to use for loop to print the following reverse number pattern
+#5 4 3 2 1
+#4 3 2 1
+#3 2 1
+#2 1
+#1
+def disp_pattern():
+    pattern = [5,4,3,2,1]
+    for j in range(len(pattern)):
+        for i in pattern:
+            print(i, end=" ")
+        pattern.pop(0)
+        print()
+
+
+#exercise 27: Print list in reverse order using a loop
+def reverse_list():
+    list1 = [10, 20, 30, 40, 50]
+    for i in range(1, len(list1)+1):
+        print(list1[-i])
+
+
+#exercise 28: Display numbers from -10 to -1 using for loop
+def disp_negative_numbers():
+    for i in range(-10, 0, 1):
+        print(i)
+
+
+#exercise 29: Use else block to display a message “Done” after successful execution of for loop
+def done_after_loop():
+    for i in range(5):
+        print(i)
+    else:
+        print("DONE")
+
+
+#exercise 30: Write a program to display all prime numbers within a range
+def prime_numbers():
+    start = int(input("write where to start looking for prime numbers"))
+    end = int(input("Write when to stop"))
+    for number in range(start, end+1):
+        if number > 1:
+            for i in range(2, number):
+                if number%i == 0:
+                    break
+            else:
+                print(number)
+
+
+#exercise 31: Display Fibonacci series up to 10 terms
+def fibonacci():
+    fibo = [0,1]
+    for i in range(2,10):
+        fibo.append(fibo[i-1]+fibo[i-2])
+    print("Fibonacci sequence:")
+    for i in fibo:
+        print(i,end=" ")
+
+
+#exercise 32: Find the factorial of a given number
+def factorial():
+    number = int(input("Write number to factor"))
+    result = 1
+    if number < 0:
+        print("type positive number")
+    else:
+        while number > 0:
+            result = result * number
+            number -= 1
+        print(result)
+
+
+#exercise 33: Reverse a given integer number
+def rev_number():
+    number = int(input("Write number to reverse"))
+    reversed_number = 0
+    while number > 0:
+        digit = number % 10
+        reversed_number = (reversed_number*10) + digit
+        number = number // 10
+    print(reversed_number)
+
+
+#exercise 34: Use a loop to display elements from a given list present at odd index positions
+def odd_index_list():
+    my_list = [10,20,30,40,50,60,70]
+    for i in range(len(my_list)):
+        if i % 2 != 0:
+            print(my_list[i])
+
+
+#exercise 35: Calculate the cube of all numbers from 1 to a given number
+def cube_number():
+    number = int(input("Write number to calculate cubes of all number from 1 to number"))
+    for i in range(1, number+1):
+        print(f"Current number {i} and cube equal to {i*i*i}")
+
+
+#exercise 36: Write a program to calculate the sum of series up to n term. For example, if n =5 the series will become 2 + 22 + 222 + 2222 + 22222 = 24690
+def sum_of_series():
+    series_number = int(input("write base number of our series (1-9)"))
+    n = int(input("how many digits will last number has"))
+    sum_of_numb = 0
+    for i in range(1, n+1):
+        number = int(f"{series_number}" * i)
+        sum_of_numb += number
+    print(sum_of_numb)
+
+
+#exercise 37: Print the following pattern. Write a program to print the following start pattern using the for loop
+def print_pyramide_pattern():
+    for i in range(1, 6):
+        print(f"*"*i)
+    for j in range(4, 0, -1):
+        print(f"*"*j)
+
+
+#exercise 38: Write a program to create function func1() to accept a variable length of arguments and print their value.
+# Note: Create a function in such a way that we can pass any number of arguments to this function,
+# and the function should process them and display each argument’s value.
+def func1(*args):
+    print("Printing values:")
+    for i in range(len(args)):
+        print(args[i])
+
+
+#execise 39: Write a program to create function calculation() such that it can accept two variables and calculate addition and subtraction.
+#Also, it must return both addition and subtraction in a single return call.
+def calculation(*args):
+    addi = args[0] + args[1]
+    sub = args[1] - args[0]
+    return addi, sub
+
+
+#exercise 40: Write a program to create a function show_employee() using the following conditions.
+#It should accept the employee’s name and salary and display both.
+#If the salary is missing in the function call then assign default value 9000 to salary
+def show_employee(name, salary=0):
+    if salary == 0:
+        salary = 9000
+    print(f"Name: {name} salary: {salary}")
+
+
+#exercise 41: Create an inner function to calculate the addition in the following way
+#Create an outer function that will accept two parameters, a and b
+#Create an inner function inside an outer function that will calculate the addition of a and b
+#At last, an outer function will add 5 into addition and return it
+def addition(a, b):
+    def add(c, d):
+        return c+d
+    return add(a, b) + 5
+
+
+#exercise 42: Write a program to create a recursive function to calculate the sum of numbers from 0 to 10.
+def recursive_sum(number):
+    if number == 0:
+        return 0
+    else:
+        return number + recursive_sum(number-1)
+
+
+#exercise 43: Below is the function display_student(name, age). Assign a new name show_student(name, age) to it and call it using the new name.
+def display_student(name, age):
+    print(name, age)
+
+show_student = display_student
+
+
+#exercise 44: Generate a Python list of all the even numbers between 4 to 30
+def list_of_even():
+    lis_of_evens = [i for i in range(4,30) if i%2==0]
+    print(lis_of_evens)
+
+
+#exercise 45: Find the largest item from a given list
+def sort_list():
+    x = [4,6,8,24,12,2]
+    print(max(x))
+    
+
+sort_list()
+
