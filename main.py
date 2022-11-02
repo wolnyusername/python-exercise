@@ -432,10 +432,6 @@ def list_of_even():
 
 
 #exercise 45: Find the largest item from a given list
-def sort_list():
+def max_list():
     x = [4,6,8,24,12,2]
     print(max(x))
-    
-
-sort_list()
-
