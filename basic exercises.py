@@ -1,5 +1,6 @@
 import os
-
+import datetime
+from datetime import datetime, timedelta
 
 # exercise 1 : Given two integer numbers by user return their product only if the product is equal to or lower than 1000, else return their sum.
 def sum_if():
@@ -708,4 +709,282 @@ def remove_duplicate():
     wynik = tuple(new_list)
     print(type(wynik))
 
-remove_duplicate()
+
+# exercise 69: Convert two lists into a dictionary
+def convert_list_to_dict():
+    keys = ['Ten', 'Twenty', 'Thirty']
+    values = [10, 20, 30]
+    dictionary = dict()
+    if len(keys) == len(values):
+        for i in range(len(keys)):
+            single_element = {keys[i]: values[i]}
+            dictionary.update(single_element)
+    print(dictionary)
+
+
+# exercise 70: Merge two Python dictionaries into one
+def merge_two_dict():
+    dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+    dict2 = {'Thirty': 30, 'Fourty': 40, 'Fifty': 50}
+    merged_dict = dict1.copy()
+    merged_dict.update(dict2)
+    me = {**dict1, **dict2}
+    print(me)
+
+
+# exercise 71: Print the value of key ‘history’ from the below dict
+def print_nested_dict():
+    sampledict = {
+        "class": {
+            "student": {
+                "name": "Mike",
+                "marks": {
+                    "physics": 70,
+                    "history": 80
+                }
+            }
+        }
+    }
+    print(sampledict["class"]["student"]["marks"]["history"])
+
+
+# exercise 72: Initialize dictionary with given values
+def create_dict_from_given():
+    employees = ['Kelly', 'Emma']
+    defaults = {"designation": 'Developer', "salary": 8000}
+    dictionary = {}
+    for i in employees:
+        dictionary.update({i:defaults})
+    print(dictionary)
+
+
+# exercise 73: Write a Python program to create a new dictionary by extracting the mentioned keys from the below dictionary.
+def extract_keys():
+    sample_dict = {
+        "name": "Kelly",
+        "age": 25,
+        "salary": 8000,
+        "city": "New york"}
+
+    # Keys to extract
+    keys = ["name", "salary"]
+    dictionary = {}
+    for i in keys:
+        dictionary.update({i: sample_dict[i]})
+    print(dictionary)
+
+
+# exercise 74: Delete a list of keys from a dictionary
+def del_keys_from_dict():
+    sample_dict = {
+        "name": "Kelly",
+        "age": 25,
+        "salary": 8000,
+        "city": "New york"
+    }
+
+    # Keys to remove
+    keys = ["name", "salary"]
+    for i in keys:
+        del sample_dict[i]
+    print(sample_dict)
+
+# exercise 75: Check if a value exists in a dictionary
+def check_value_in_dict():
+    value_to_check = int(input("write your number to check"))
+    sample_dict = {'a': 100, 'b': 200, 'c': 300}
+    flag = False
+    if value_to_check in sample_dict.values():
+        print(f"{value_to_check} is in dict")
+    else:
+        print(f"{value_to_check} is not in dict")
+
+
+# exercise 76: Write a program to rename a key in the following dictionary.
+def rename_key():
+    sample_dict = {
+        "name": "Kelly",
+        "age": 25,
+        "salary": 8000,
+        "city": "New york"
+    }
+    key_to_rename = input("which key you want to rename?")
+    new_key_name = input("give new key's name")
+    if key_to_rename in sample_dict.keys():
+        sample_dict.update({new_key_name: sample_dict[key_to_rename]})
+        del sample_dict[key_to_rename]
+    print(sample_dict)
+
+
+# exercise 77: Get the key of a minimum value from the following dictionary
+def min_value_from_dict():
+    sample_dict = {
+        'Physics': 82,
+        'Math': 65,
+        'history': 75
+    }
+    print(min(sample_dict))
+
+
+# exercise 78: Change value of a key in a nested dictionary
+def change_in_nested_dict():
+    sample_dict = {
+        'emp1': {'name': 'Jhon', 'salary': 7500},
+        'emp2': {'name': 'Emma', 'salary': 8000},
+        'emp3': {'name': 'Brad', 'salary': 500}
+    }
+    for i in sample_dict.keys():
+        print(i)
+    emp_number = int(input("write number of employee where you want to change value"))
+    emp_to_change = dict(sample_dict[f"emp{emp_number}"])
+    del sample_dict[f"emp{emp_number}"]
+    print(emp_to_change)
+    value_to_change = input("which value would you like to change")
+    changed_value = input("write new value")
+    emp_to_change[value_to_change] = changed_value
+    sample_dict.update({f"emp{emp_number}":emp_to_change})
+    print(sample_dict)
+
+
+# exercise 79: Given a Python list, Write a program to add all its elements into a given set.
+def add_to_set():
+    sample_set = {"Yellow", "Orange", "Black"}
+    sample_list = ["Blue", "Green", "Red"]
+    sample_set.update(sample_list)
+    print(sample_set)
+
+
+#exercise 80: Return a new set of identical items from two sets
+def identical_from_both_sets():
+    set1 = {10, 20, 30, 40, 50}
+    set2 = {30, 40, 50, 60, 70}
+    set3 = set1.intersection(set2)
+    print(set3)
+
+
+# exercise 81: Write a Python program to return a new set with unique items from both sets by removing duplicates.
+def unique_items_in_sets():
+    set1 = {10, 20, 30, 40, 50}
+    set2 = {30, 40, 50, 60, 70}
+    set3 = set1.union(set2)
+    print(set3)
+
+
+
+# exercise 82: Reverse the tuple
+def rev_tuple():
+    tuple1 = (10, 20, 30, 40, 50)
+    reversed_tuple = []
+    for i in range(len(tuple1)-1,-1,-1):
+        reversed_tuple.append(tuple1[i])
+    reversed_tuple = tuple(reversed_tuple)
+    print(reversed_tuple)
+
+
+# exercise 83: The given tuple is a nested tuple. write a Python program to print the value 20.
+def value_from_nested_tuple():
+    tuple1 = ("Orange", [10, 20, 30], (5, 15, 25))
+    print(tuple1[1][1])
+
+
+# exercise 84: Write a program to unpack the following tuple into 4 variables and display each variable.
+def unpack_tuple():
+    tuple1 = (10, 20, 30, 40)
+    a,b,c,d = tuple1
+
+
+# exercise 85: Swap two tuples in Python
+def swap_tuples():
+    tuple1 = (11, 22)
+    tuple2 = (99, 88)
+    temp_tuple = tuple1
+    tuple1 = tuple2
+    tuple2 = temp_tuple
+    print(tuple1)
+    print(tuple2)
+
+
+# exercise 86: Given is a nested tuple. Write a program to modify the first item (22) of a list inside a following tuple to 222
+def change_value_in_nested_tuple():
+    tuple1 = (11, [22, 33], 44, 55)
+    tuple1[1][0] = 222
+    print(tuple1)
+
+
+# exercise 87: Counts the number of occurrences of item 50 from a tuple
+def count_in_tuple():
+    tuple1 = (50, 10, 60, 70, 50)
+    print(tuple1.count(50))
+
+
+# exercise 88: Check if all items in the tuple are the same
+def check_if_all_the_same():
+    tuple1 = (45, 45, 45, 45)
+    flag = True
+    for i in tuple1:
+        if tuple1[0] != i:
+            return False
+    else:
+        return flag
+
+
+# exercise 89: Print current date and time in Python
+def print_date_and_time():
+    print(datetime.datetime.now())
+
+
+# exercise 90: Convert string into a datetime object
+def convert_string_to_date():
+    date_string = "Feb 25 2020 4:20PM"
+    print(datetime.strptime(date_string, "%b %d %Y %I:%M%p"))
+
+
+# exercise 91: Subtract a week (7 days)  from a given date in Python
+def sub_week_from_date():
+    given_date = datetime(2020, 2, 25)
+    delta = timedelta(days=7)
+    print(given_date-delta)
+
+
+# exercise 92: Print a date in a the following format Day_name  Day_number  Month_name  Year
+def print_date_in_format():
+    given_date = datetime(2020, 2, 25)
+    print(given_date.strftime("%A %d %B %Y"))
+
+
+# exercise 93: Find the day of the week of a given date
+def find_day_of_week():
+    given_date = datetime(2020, 7, 26)
+    print(given_date.strftime("%A"))
+
+
+# exercise 94: Add a week (7 days) and 12 hours to a given date
+def add_week_to_date():
+    given_date = datetime(2020, 3, 22, 10, 0, 0)
+    delta = timedelta(days=7,hours=12)
+    print(given_date+delta)
+
+
+# exercise 95: Convert the following datetime into a string
+def convert_date_to_string():
+    given_date = datetime(2020, 2, 25)
+    print(given_date.strftime("%Y-%m-%d %X"))
+
+
+# exercise 96: Calculate number of days between two given dates
+def calculate_days():
+    date_1 = datetime(2020, 2, 25)
+    date_2 = datetime(2020, 9, 17)
+    print(date_2-date_1)
+
+
+# exercise 97: Write a Python program to create a Vehicle class with max_speed and mileage instance attributes.
+class Vehicle:
+    def __init__(self, max_speed, mileage):
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+
+# exercise 98: Create a child class Bus that will inherit all of the variables and methods of the Vehicle class
+class Bus(Vehicle):
+    pass
