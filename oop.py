@@ -21,12 +21,12 @@ class Vehicle:
 
 class Bus(Vehicle):
     def fare(self):
-        total_fare = super().fare() + 0.1*super().fare()
+        total_fare = super().fare() + 0.1 * super().fare()
         return total_fare
 
 
-model = Bus("das",200,20,50)
+model = Bus("das", 200, 20, 50)
 # exercise : Write a line to determine which class a given Bus object belongs to.
 print(type(object))
 # exercise : Determine if model is also an instance of the Vehicle class
-print(isinstance(model,Vehicle))
+print(isinstance(model, Vehicle))

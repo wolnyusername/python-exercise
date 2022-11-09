@@ -21,7 +21,9 @@ def sum_iter():
             print(f"Current number {i}, previous number {i}, sum = {sum_of_2_numbers}")
         else:
             sum_of_2_numbers = i + (i - 1)
-            print(f"Current number {i}, previous number {i - 1}, sum = {sum_of_2_numbers}")
+            print(
+                f"Current number {i}, previous number {i - 1}, sum = {sum_of_2_numbers}"
+            )
 
 
 # exercise 3 : Write a program to accept a string from the user and display characters that are present at an even index number.
@@ -35,7 +37,9 @@ def even_index_string():
 # exercise 4 : Write a program to remove characters from a string starting from zero up to n and return a new string.
 def remove_char():
     user_string = input("write your string")
-    number_of_letters_to_remove = int(input("write number of letters to remove, must be lower than string length"))
+    number_of_letters_to_remove = int(
+        input("write number of letters to remove, must be lower than string length")
+    )
     if number_of_letters_to_remove > len(user_string):
         print("number of letters to remove exceed string length")
     else:
@@ -86,7 +90,7 @@ def if_palindrome_number():
     while original_number > 0:
         rest = original_number % 10
         reversed_number = (reversed_number * 10) + rest
-        original_number = (original_number // 10)
+        original_number = original_number // 10
     if number_to_check == reversed_number:
         print("number is a palindrome")
     else:
@@ -118,10 +122,10 @@ def reverse_digit():
 
 
 # exercise 12 : Calculate income tax for the given income by adhering to the below rules
-#               amount  %
+#                amount     %
 # First          $10,000	0
 # Next           $10,000	10
-# The remaining	        20
+# The remaining	            20
 def tax_calculator():
     user_money = int(input("write how much money to calculate tax from"))
     tax = 0
@@ -167,7 +171,7 @@ def exponent():
 
 # exercise 16: Display three string “Name”, “Is”, “James” as “Name**Is**James”
 def display_name():
-    print('Name', 'Is', 'James', sep="**")
+    print("Name", "Is", "James", sep="**")
 
 
 # exercise 17: Accept a list of 5 float numbers as an input from the user
@@ -180,8 +184,8 @@ def input_list():
 
 # exercise 18: Write all content of a given file into a new file but skipping given line number
 def skip_line():
-    given_file = open('test.txt', 'r')
-    new_file = open('new_file.txt', 'a')
+    given_file = open("test.txt", "r")
+    new_file = open("new_file.txt", "a")
     which_line_to_skip = int(input("write line that you want to skip during rewriting"))
     iterator = 0
     for line in given_file:
@@ -210,7 +214,7 @@ def f_format():
 
 # exercise 21: Check if file is empty
 def is_empty():
-    file_path = 'test.txt'
+    file_path = "test.txt"
     if os.stat(file_path).st_size == 0:
         print("Empty file")
     else:
@@ -219,7 +223,7 @@ def is_empty():
 
 # exercise 22: Read given line number from the following file
 def read_given_live():
-    f = open('test.txt', 'r')
+    f = open("test.txt", "r")
     chosen_line = int(input("write line that you want to read"))
     iterator = 0
     for line in f:
@@ -353,7 +357,9 @@ def odd_index_list():
 
 # exercise 35: Calculate the cube of all numbers from 1 to a given number
 def cube_number():
-    number = int(input("Write number to calculate cubes of all number from 1 to number"))
+    number = int(
+        input("Write number to calculate cubes of all number from 1 to number")
+    )
     for i in range(1, number + 1):
         print(f"Current number {i} and cube equal to {i * i * i}")
 
@@ -528,14 +534,14 @@ def mix_string():
                 s3 += f"{s1[0]}{s2[(len(s2) - 1)]}"
             else:
                 s3 += f"{s1[i]}{s2[-i - 1]}"
-        s3 += s1[len(s2):]
+        s3 += s1[len(s2) :]
     elif len(s2) > len(s1):
         for i in range(len(s1)):
             if i == 0:
                 s3 += f"{s1[0]}{s2[(len(s2) - 1)]}"
             else:
                 s3 += f"{s1[i]}{s2[-i - 1]}"
-        s3 += s2[:(len(s2) - len(s1))]
+        s3 += s2[: (len(s2) - len(s1))]
     else:
         for i in range(len(s2)):
             if i == 0:
@@ -593,7 +599,7 @@ def reverse_given_string():
     s1 = input("write string to reverse")
     rev = ""
     for i in range(len(s1)):
-        rev += s1[len(s1)-i-1]
+        rev += s1[len(s1) - i - 1]
     print(rev)
 
 
@@ -621,15 +627,15 @@ def remove_empty_string():
 # exercise 61: Slice list into 3 equal chunks and reverse each chunk
 def slice_list_in_3():
     l1 = [11, 45, 8, 23, 14, 12, 78, 45, 89]
-    first_point = len(l1)//3
-    second_point = len(l1)*2//3
+    first_point = len(l1) // 3
+    second_point = len(l1) * 2 // 3
     chunk1 = l1[:first_point]
     chunk2 = l1[first_point:second_point]
     chunk3 = l1[second_point:]
     chunk1.reverse()
     chunk2.reverse()
     chunk3.reverse()
-    print(chunk1,chunk2,chunk3)
+    print(chunk1, chunk2, chunk3)
 
 
 # exercise 62: Write a program to iterate a given list and count the occurrence of each element and create a dictionary to show the count of each element.
@@ -682,14 +688,24 @@ def subset_of_set():
 # exercise 66: Iterate a given list and check if a given element exists as a key’s value in a dictionary. If not, delete it from the list
 def iter_in_dict():
     roll_number = [47, 64, 69, 37, 76, 83, 95, 97]
-    sample_dict = {'Jhon': 47, 'Emma': 69, 'Kelly': 76, 'Jason': 97}
+    sample_dict = {"Jhon": 47, "Emma": 69, "Kelly": 76, "Jason": 97}
     roll_number[:] = [item for item in roll_number if item in sample_dict.values()]
     print(roll_number)
 
 
 # exercise 67: Get all values from the dictionary and add them to a list but don’t add duplicates
 def dict_to_list_no_duplicates():
-    speed = {'jan': 47, 'feb': 52, 'march': 47, 'April': 44, 'May': 52, 'June': 53, 'july': 54, 'Aug': 44, 'Sept': 54}
+    speed = {
+        "jan": 47,
+        "feb": 52,
+        "march": 47,
+        "April": 44,
+        "May": 52,
+        "June": 53,
+        "july": 54,
+        "Aug": 44,
+        "Sept": 54,
+    }
     l1 = []
     for i in speed.values():
         if i not in l1:
@@ -712,7 +728,7 @@ def remove_duplicate():
 
 # exercise 69: Convert two lists into a dictionary
 def convert_list_to_dict():
-    keys = ['Ten', 'Twenty', 'Thirty']
+    keys = ["Ten", "Twenty", "Thirty"]
     values = [10, 20, 30]
     dictionary = dict()
     if len(keys) == len(values):
@@ -724,8 +740,8 @@ def convert_list_to_dict():
 
 # exercise 70: Merge two Python dictionaries into one
 def merge_two_dict():
-    dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
-    dict2 = {'Thirty': 30, 'Fourty': 40, 'Fifty': 50}
+    dict1 = {"Ten": 10, "Twenty": 20, "Thirty": 30}
+    dict2 = {"Thirty": 30, "Fourty": 40, "Fifty": 50}
     merged_dict = dict1.copy()
     merged_dict.update(dict2)
     me = {**dict1, **dict2}
@@ -735,36 +751,24 @@ def merge_two_dict():
 # exercise 71: Print the value of key ‘history’ from the below dict
 def print_nested_dict():
     sampledict = {
-        "class": {
-            "student": {
-                "name": "Mike",
-                "marks": {
-                    "physics": 70,
-                    "history": 80
-                }
-            }
-        }
+        "class": {"student": {"name": "Mike", "marks": {"physics": 70, "history": 80}}}
     }
     print(sampledict["class"]["student"]["marks"]["history"])
 
 
 # exercise 72: Initialize dictionary with given values
 def create_dict_from_given():
-    employees = ['Kelly', 'Emma']
-    defaults = {"designation": 'Developer', "salary": 8000}
+    employees = ["Kelly", "Emma"]
+    defaults = {"designation": "Developer", "salary": 8000}
     dictionary = {}
     for i in employees:
-        dictionary.update({i:defaults})
+        dictionary.update({i: defaults})
     print(dictionary)
 
 
 # exercise 73: Write a Python program to create a new dictionary by extracting the mentioned keys from the below dictionary.
 def extract_keys():
-    sample_dict = {
-        "name": "Kelly",
-        "age": 25,
-        "salary": 8000,
-        "city": "New york"}
+    sample_dict = {"name": "Kelly", "age": 25, "salary": 8000, "city": "New york"}
 
     # Keys to extract
     keys = ["name", "salary"]
@@ -776,12 +780,7 @@ def extract_keys():
 
 # exercise 74: Delete a list of keys from a dictionary
 def del_keys_from_dict():
-    sample_dict = {
-        "name": "Kelly",
-        "age": 25,
-        "salary": 8000,
-        "city": "New york"
-    }
+    sample_dict = {"name": "Kelly", "age": 25, "salary": 8000, "city": "New york"}
 
     # Keys to remove
     keys = ["name", "salary"]
@@ -789,10 +788,11 @@ def del_keys_from_dict():
         del sample_dict[i]
     print(sample_dict)
 
+
 # exercise 75: Check if a value exists in a dictionary
 def check_value_in_dict():
     value_to_check = int(input("write your number to check"))
-    sample_dict = {'a': 100, 'b': 200, 'c': 300}
+    sample_dict = {"a": 100, "b": 200, "c": 300}
     flag = False
     if value_to_check in sample_dict.values():
         print(f"{value_to_check} is in dict")
@@ -802,12 +802,7 @@ def check_value_in_dict():
 
 # exercise 76: Write a program to rename a key in the following dictionary.
 def rename_key():
-    sample_dict = {
-        "name": "Kelly",
-        "age": 25,
-        "salary": 8000,
-        "city": "New york"
-    }
+    sample_dict = {"name": "Kelly", "age": 25, "salary": 8000, "city": "New york"}
     key_to_rename = input("which key you want to rename?")
     new_key_name = input("give new key's name")
     if key_to_rename in sample_dict.keys():
@@ -818,20 +813,16 @@ def rename_key():
 
 # exercise 77: Get the key of a minimum value from the following dictionary
 def min_value_from_dict():
-    sample_dict = {
-        'Physics': 82,
-        'Math': 65,
-        'history': 75
-    }
+    sample_dict = {"Physics": 82, "Math": 65, "history": 75}
     print(min(sample_dict))
 
 
 # exercise 78: Change value of a key in a nested dictionary
 def change_in_nested_dict():
     sample_dict = {
-        'emp1': {'name': 'Jhon', 'salary': 7500},
-        'emp2': {'name': 'Emma', 'salary': 8000},
-        'emp3': {'name': 'Brad', 'salary': 500}
+        "emp1": {"name": "Jhon", "salary": 7500},
+        "emp2": {"name": "Emma", "salary": 8000},
+        "emp3": {"name": "Brad", "salary": 500},
     }
     for i in sample_dict.keys():
         print(i)
@@ -842,7 +833,7 @@ def change_in_nested_dict():
     value_to_change = input("which value would you like to change")
     changed_value = input("write new value")
     emp_to_change[value_to_change] = changed_value
-    sample_dict.update({f"emp{emp_number}":emp_to_change})
+    sample_dict.update({f"emp{emp_number}": emp_to_change})
     print(sample_dict)
 
 
@@ -854,7 +845,7 @@ def add_to_set():
     print(sample_set)
 
 
-#exercise 80: Return a new set of identical items from two sets
+# exercise 80: Return a new set of identical items from two sets
 def identical_from_both_sets():
     set1 = {10, 20, 30, 40, 50}
     set2 = {30, 40, 50, 60, 70}
@@ -870,12 +861,11 @@ def unique_items_in_sets():
     print(set3)
 
 
-
 # exercise 82: Reverse the tuple
 def rev_tuple():
     tuple1 = (10, 20, 30, 40, 50)
     reversed_tuple = []
-    for i in range(len(tuple1)-1,-1,-1):
+    for i in range(len(tuple1) - 1, -1, -1):
         reversed_tuple.append(tuple1[i])
     reversed_tuple = tuple(reversed_tuple)
     print(reversed_tuple)
@@ -890,7 +880,7 @@ def value_from_nested_tuple():
 # exercise 84: Write a program to unpack the following tuple into 4 variables and display each variable.
 def unpack_tuple():
     tuple1 = (10, 20, 30, 40)
-    a,b,c,d = tuple1
+    a, b, c, d = tuple1
 
 
 # exercise 85: Swap two tuples in Python
@@ -943,7 +933,7 @@ def convert_string_to_date():
 def sub_week_from_date():
     given_date = datetime(2020, 2, 25)
     delta = timedelta(days=7)
-    print(given_date-delta)
+    print(given_date - delta)
 
 
 # exercise 92: Print a date in a the following format Day_name  Day_number  Month_name  Year
@@ -961,8 +951,8 @@ def find_day_of_week():
 # exercise 94: Add a week (7 days) and 12 hours to a given date
 def add_week_to_date():
     given_date = datetime(2020, 3, 22, 10, 0, 0)
-    delta = timedelta(days=7,hours=12)
-    print(given_date+delta)
+    delta = timedelta(days=7, hours=12)
+    print(given_date + delta)
 
 
 # exercise 95: Convert the following datetime into a string
@@ -975,7 +965,7 @@ def convert_date_to_string():
 def calculate_days():
     date_1 = datetime(2020, 2, 25)
     date_2 = datetime(2020, 9, 17)
-    print(date_2-date_1)
+    print(date_2 - date_1)
 
 
 # exercise 97: Write a Python program to create a Vehicle class with max_speed and mileage instance attributes.
